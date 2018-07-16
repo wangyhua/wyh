@@ -1,0 +1,13 @@
+/* pages/login_regnew/login_regnew.wxss */
+@import '/style/skyvow.wxss';
+
+.btnview {
+  margin-top: 20px;
+  margin-bottom:20px;
+
+}
+
+.disabled{
+  color:#52a341
+  
+  }

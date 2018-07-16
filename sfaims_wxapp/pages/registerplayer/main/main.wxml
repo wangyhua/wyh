@@ -1,0 +1,19 @@
+<view class="weui-cells weui-cells_after-title" >
+  <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+          <view class="weui-label">状态</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input view_right" placeholder="" 
+          maxlength='11' name="registerplayer_status" value="{{status_name}}" disabled='disabled'/>
+      </view>
+  </view>
+</view>
+<view class='user_item'>
+  <navigator class='clearBoth' hover-class="none" url="/pages/registerplayer/player_temp_select/player_temp_select">
+    <image class='float_left user_item_image' src='/images/player.png'></image>
+    <text class='float_left'>成为注册球员</text>
+    <image class='float_image' src='/images/gt.png'></image>
+  </navigator>
+</view>
+

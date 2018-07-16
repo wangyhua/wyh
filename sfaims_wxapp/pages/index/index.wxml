@@ -1,0 +1,75 @@
+<!--index.wxml-->
+<view class="page">
+<view class="swiper-tab">  
+    <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">首页</view>  
+    <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">赛事</view>  
+    <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">课程</view>  
+</view>  
+<swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight - 80}}px" bindchange="bindChange">  
+    <!-- 首页 -->  
+    <swiper-item>  
+      <view>
+        <swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000" duration="1000">    
+        <block wx:for="{{movies}}" wx:for-index="index" wx:key="pid">    
+          <swiper-item>    
+            <image src="{{item.url}}" class="slide-image" mode="aspectFill">
+            <cover-view></cover-view>
+            </image>
+          </swiper-item>
+        </block>    
+        </swiper> 
+        <view class="weui-panel weui-panel_access">
+          <scroll-view scroll-y="true" style="height: {{clientHeight?clientHeight+'px':'auto'}}">
+            <view class="weui-panel__bd">
+                <navigator url="" class="weui-media-box weui-media-box_appmsg2" hover-class="weui-cell_active">
+                    <view class="userinfo">
+                        <!-- <image class="weui-media-box__thumb" src="../../images/mancity.png" /> -->
+                        <image class="userinfo-avatar" src="../../images/mancity.png" mode="cover"></image>
+                        <text class="userinfo-nickname">曼彻斯特城队</text>
+                    </view>
+                    <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                        <view class='line-font1'>2018-08-01 14:00-16:00</view>
+                        <view class='line-font1'>0:0</view>
+                        <view class='line-font2'>老特拉福德</view>
+                    </view>
+                    <view class="userinfo">
+                        <!-- <image class="weui-media-box__thumb" src="../../images/mancity.png" /> -->
+                        <image class="userinfo-avatar" src="../../images/manu.png" mode="cover"></image>
+                        <text class="userinfo-nickname">曼彻斯特联队</text>
+                    </view>
+                </navigator>
+
+                <navigator url="" class="weui-media-box weui-media-box_appmsg2" hover-class="weui-cell_active">
+                    <view class="userinfo">
+                        <!-- <image class="weui-media-box__thumb" src="../../images/mancity.png" /> -->
+                        <image class="userinfo-avatar" src="../../images/arsenal.png" mode="cover"></image>
+                        <text class="userinfo-nickname">阿森纳队</text>
+                    </view>
+                    <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                        <view class='line-font1'>2018-08-01 14:00-16:00</view>
+                        <view class='line-font1'>0:0</view>
+                        <view class='line-font2'>酋长球场</view>
+                    </view>
+                    <view class="userinfo">
+                        <!-- <image class="weui-media-box__thumb" src="../../images/mancity.png" /> -->
+                        <image class="userinfo-avatar" src="../../images/chelsea.png" mode="cover"></image>
+                        <text class="userinfo-nickname">切尔西队</text>
+                    </view>
+                </navigator>
+ 
+                
+              </view>
+            </scroll-view>
+          </view>
+      </view>  
+    </swiper-item>  
+    <!-- 赛事 -->  
+    <swiper-item>  
+      <view>赛事</view>  
+    </swiper-item>  
+    <!-- 课程 -->  
+    <swiper-item>  
+      <view>课程</view>  
+    </swiper-item>  
+</swiper>
+</view>

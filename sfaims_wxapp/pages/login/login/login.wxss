@@ -1,0 +1,15 @@
+/* pages/login/login/login.wxss */
+
+
+.hide{
+display: none;
+}
+.show{
+display: block;
+}
+
+.btn_pannel {
+  margin-top: 50px;
+  margin-bottom:20px;
+
+}

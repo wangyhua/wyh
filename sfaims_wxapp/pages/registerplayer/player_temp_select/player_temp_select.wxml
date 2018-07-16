@@ -1,0 +1,29 @@
+<view class="page__bd">
+     <view class="page__hd">
+        <view class="page__title">请输入机构邀请码</view>
+        <view class="page__desc">输入机构邀请码，将申请成为该机构的注册球员</view>
+    </view>
+    <form bindsubmit="submitForm">
+    <view class="weui-cells weui-cells_after-title" >
+
+        <view class="weui-cell weui-cell_input weui-cell_vcode">
+            <view class="weui-cell__hd">
+                <view class="weui-label">邀请码</view>
+            </view>
+            <view class="weui-cell__bd">
+                <input class="weui-input" placeholder="请输入邀请码" 
+                 maxlength='6' name="invitecode" value="{{invitecode}}"/>
+            </view>
+        </view>
+
+        <view class="weui-flex">
+          <view class="weui-flex__item">
+            <view class="placeholder">
+            <button class="weui-btn" type="primary"  formType="submit" >确定</button>
+            </view>
+          </view>
+        </view>
+    </view>
+    </form>
+    
+</view>

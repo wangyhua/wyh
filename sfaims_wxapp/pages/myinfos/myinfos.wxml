@@ -1,0 +1,67 @@
+<!--pages/myinfos/myinfos.wxml-->
+<scroll-view scroll-y class="main" wx:if="{{showMyInfo}}">
+  <view class='user_info'>
+    <image class='bg bgimage' src='/images/upImage.png'></image>
+    <image class='avatar bgimage' src='{{userInfo.avatarUrl}}'></image>
+    <!-- <view class='user_name'>{{userInfo.nickName}}</view> -->
+    <view class='user_name'>{{username}}</view>
+    <!-- <view class="user_view weui-flex">
+        <view class="weui-flex__item view_left"><view class="placeholder">姓名:{{username}}</view></view>
+        <view class="weui-flex__item view_right"><view class="placeholder">年龄:{{age}}</view></view>
+    </view> -->
+    <view class="user_view weui-flex">
+        <view class="weui-flex__item view_left">
+          <view class="placeholder">{{registerplayer_status_name}}</view>
+        </view>
+        <view class="weui-flex__item view_right">
+          <view class="placeholder"></view>
+        </view>
+    </view>
+  </view>
+  <view class='order'>
+    <navigator class='order_all' hover-class="none" url="/pages/login/login_regnew/login_regnew?readonly=1">
+      <text>我的基本信息</text>
+      <image src='/images/gt.png'></image>
+    </navigator>
+  </view>
+  
+  <view class='user_item'>
+
+    <!-- <navigator class='clearBoth' hover-class="none" url="/pages/player_temp_select/player_temp_select">
+      <image class='float_left user_item_image' src='/images/player.png'></image>
+      <text class='float_left'>成为注册球员</text>
+      <image class='float_image' src='/images/gt.png'></image>
+    </navigator> -->
+    <navigator class='clearBoth' hover-class="none" url="/pages/registerplayer/main/main">
+      <image class='float_left user_item_image' src='/images/player.png'></image>
+      <text class='float_left'>我是球员</text>
+      <image class='float_image' src='/images/gt.png'></image>
+    </navigator>
+    <navigator class='clearBoth' hover-class="none" url="/pages/aboutus/aboutus">
+      <image class='float_left user_item_image' src='/images/infomation.png'></image>
+      <text class='float_left'>关于我们</text>
+    </navigator>
+  </view>
+</scroll-view>
+
+<view wx:if="{{!showMyInfo}}" class="container" >
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+  <view class="userinfo1">
+    <button class="weui-btn" type="primary" 
+    wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 点击登陆 </button>
+    <block wx:else>
+      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+ <text class="banhint" wx:if="{{showBanHint}}">您的账号已被封停</text>
+ <text class="banhint" wx:if="{{showBlackhint}}">身份证已在黑名单中</text>
+
+  </view>
+  <view class="hintinfo" wx:if="{{showBindView}}">
+   
+    <text>您尚未登记ims平台信息，请点击此处进行操作</text>
+    <button class="weui-btn" type="primary" bindtap="doReg">进行登记</button>
+  </view>
+</view>

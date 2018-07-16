@@ -1,0 +1,183 @@
+<view class="page">
+    <form bindsubmit="submitForm">
+      <view class="weui-cells weui-cells_after-title" >
+          <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                  <view class="weui-label">注册机构</view>
+              </view>
+              <view class="weui-cell__bd">
+                  <input class="weui-input" placeholder="" 
+                  maxlength='11' name="org_name" value="{{org_name}}" disabled='disabled'/>
+              </view>
+          </view>
+      </view>
+      <!--基本信息  -->
+      <view class="weui-cells__title">基本信息</view>
+      <view class="weui-cells weui-cells_after-title" >
+          <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                  <view class="weui-label">身份证</view>
+              </view>
+              <view class="weui-cell__bd">
+                  <input class="weui-input" placeholder="请输入身份证号" 
+                  maxlength='18' name="idcard" value="{{form.idcard}}"/>
+              </view>
+          </view>
+
+          <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                  <view class="weui-label">姓名</view>
+              </view>
+              <view class="weui-cell__bd">
+                  <input class="weui-input" placeholder="真实姓名"  
+                  maxlength='10' name="username" value="{{form.username}}"/>
+              </view>
+          </view>
+
+          <view class="weui-cell weui-cell_select">
+                  <view class="weui-cell__hd weui-cell__hd_in-select-after">
+                      <view class="weui-label">户籍所在地</view>
+                  </view>
+                  <view class="weui-cell__bd">
+                      <picker bindchange="bindHouseholdChange" value="{{householdIndex}}" 
+                              range="{{household}}" range-key="province_name" name="household">
+                          <view class="weui-select weui-select_in-select-after">{{household[householdIndex].province_name}}</view>
+                      </picker>
+                  </view>
+          </view>
+          <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                  <view class="weui-label">生日</view>
+              </view>
+              <view class="weui-cell__bd">
+                  <picker mode="date" value="{{form.birth}}" start="1949-01-01" bindchange="bindDateChange" name="birth">
+                      <view class="weui-input">{{form.birth}}</view>
+                  </picker>
+              </view>
+          </view>
+          <view class="weui-cell weui-cell_input weui-cell_vcode">
+              <view class="weui-cell__hd">
+                  <view class="weui-label">微信号</view>
+              </view>
+              <view class="weui-cell__bd">
+                  <input class="weui-input" placeholder="请输入微信号" 
+                  maxlength='20' name="wechat" value="{{form.wechat}}"/>
+              </view>
+          </view>
+          <view class="weui-cell weui-cell_input weui-cell_vcode">
+              <view class="weui-cell__hd">
+                  <view class="weui-label">邮箱</view>
+              </view>
+              <view class="weui-cell__bd">
+                  <input class="weui-input" placeholder="请输入邮箱" 
+                  maxlength='30' name="mail" value="{{form.email}}"/>
+              </view>
+          </view>
+          <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                  <view class="weui-label">文化程度</view>
+              </view>
+              <view class="weui-cell__bd">
+                  <input class="weui-input" placeholder="请输入文化程度" 
+                  maxlength='10' name="education" value="{{form.education}}"/>
+              </view>
+          </view>
+          <view class="weui-cell weui-cell_input ">
+              <view class="weui-cell__hd">
+                  <view class="weui-label">身高(cm)</view>
+              </view>
+              <view class="weui-cell__bd">
+                  <input class="weui-input" type='number' placeholder="请输入身高" 
+                  maxlength='5' name="height" value="{{form.height}}"/>
+              </view>
+          </view>
+          <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                  <view class="weui-label">体重(kg)</view>
+              </view>
+              <view class="weui-cell__bd">
+                  <input class="weui-input" type='number' placeholder="请输入体重" 
+                  maxlength='5' name="weight" value="{{form.weight}}"/>
+              </view>
+          </view>
+      </view>
+      <view wx:if="{{showguardian}}">
+        <view class="weui-cells__title">监护人信息</view>
+        <view class="weui-cells weui-cells_after-title" >
+          <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                  <view class="weui-label">监护人姓名</view>
+              </view>
+              <view class="weui-cell__bd">
+                  <input class="weui-input" placeholder="请输入监护人姓名" 
+                  maxlength='10' name="guardian_name" value="{{form.guardian_name}}"/>
+              </view>
+          </view>
+          <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                  <view class="weui-label">监护人身份证</view>
+              </view>
+              <view class="weui-cell__bd">
+                  <input class="weui-input" placeholder="请输入监护人身份证" 
+                  maxlength='18' name="guardian_idcard" value="{{form.guardian_idcard}}"/>
+              </view>
+          </view>
+          <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                  <view class="weui-label">监护人关系</view>
+              </view>
+              <view class="weui-cell__bd">
+                  <input class="weui-input" placeholder="请输入监护人关系" 
+                  maxlength='10' name="guardian_relation" value="{{form.guardian_relation}}"/>
+              </view>
+          </view>
+          <view class="weui-cell" >
+            <view class="weui-cell__bd">
+              <view class="weui-uploader">
+                <view class="weui-uploader__hd">
+                    <view class="weui-uploader__title">监护人资料上传</view>
+                    <view class="weui-uploader__info">{{files2.length}}/3</view>
+                </view>
+                <view class="weui-uploader__bd">
+                    <view class="weui-uploader__files" id="uploaderFiles">
+                      <block wx:for="{{files2}}" wx:key="*this">
+                       <!-- bindtap="previewImage" -->
+                          <view class="weui-uploader__file" id="{{item}}">  
+                              <image class="weui-uploader__img" src="{{item}}"
+                               mode="aspectFill" bindlongtap='longTapImg' 
+                               data-src="{{item}}"/>
+                          </view>
+                      </block>
+                    </view>
+                    <view class="weui-uploader__input-box">
+                        <view class="weui-uploader__input" bindtap="chooseImage2"></view>
+                    </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+
+      </view>
+      <!-- checkbox -->
+      <checkbox-group bindchange="bindAgreeChange" name='isAgree'>
+        <label class="weui-agree" for="weuiAgree">
+            <view class="weui-agree__text">
+                <checkbox class="weui-agree__checkbox" id="weuiAgree" value="agree" checked="{{isAgree}}" />
+                <view class="weui-agree__checkbox-icon">
+                    <icon class="weui-agree__checkbox-icon-check" type="success_no_circle" size="9" wx:if="{{isAgree}}"></icon>
+                </view>
+                阅读并同意<navigator url="" class="weui-agree__link">《相关条款》</navigator>
+            </view>
+        </label>
+      </checkbox-group>
+      <!--确定按钮  -->
+      <view class="weui-flex">
+        <view class="weui-flex__item">
+          <view class="placeholder">
+          <button class="weui-btn" type="primary"  formType="submit" >确定</button>
+          </view>
+        </view>
+      </view>
+    </form>
+</view>
